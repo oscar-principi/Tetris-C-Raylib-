@@ -8,14 +8,23 @@ public:
     Game();
     ~Game();
     void Draw();
+    void DrawMenu(Font font);
     void DrawGame(Font font, Game& game, int level);
+    void DrawGameOver(Font font, int score);
+    void EndGame(Font font, int currentScore);
+    void DrawPause(Font font);
+    void CheckForHighScore(int currentScore);
     void HandleInput();
     void MoveBlockDown();
     bool gameOver;
     int score;
-    Music music;
+    Music music; 
 
 private:
+    double lastMoveTime = 0.0;
+    double lastMoveTimeLeft = 0.0;
+    double lastMoveTimeRight = 0.0;
+    double moveInterval = 0.1;
     void MoveBlockLeft();
     void MoveBlockRight();
     Block GetRandomBlock();
@@ -32,4 +41,5 @@ private:
     Block nextBlock;
     Sound rotateSound;
     Sound clearSound;
+    std::vector<Block> fallingBlocks; 
 };

@@ -1,9 +1,9 @@
 ﻿  Game.cpp
-C:\Users\princ\OneDrive\Desktop\Tetris - C++ & Raylib\Tetris - C++ & Raylib\Game.cpp(73,48): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\princ\OneDrive\Desktop\Tetris - C++ & Raylib\Tetris - C++ & Raylib\Game.cpp(80,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\princ\OneDrive\Desktop\Tetris - C++ & Raylib\Tetris - C++ & Raylib\Game.cpp(68,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\princ\OneDrive\Desktop\Tetris - C++ & Raylib\Tetris - C++ & Raylib\Game.cpp(116,48): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\princ\OneDrive\Desktop\Tetris - C++ & Raylib\Tetris - C++ & Raylib\Game.cpp(123,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
   main.cpp
-C:\Users\princ\OneDrive\Desktop\Tetris - C++ & Raylib\Tetris - C++ & Raylib\main.cpp(65,13): error C3861: 'DrawGame': no se encontró el identificador
-  Menu.cpp
-C:\Users\princ\OneDrive\Desktop\Tetris - C++ & Raylib\Tetris - C++ & Raylib\Menu.cpp(6,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-  Position.cpp
   Generando código...
+  Tetris - C++ & Raylib.vcxproj -> C:\Users\princ\OneDrive\Desktop\Tetris - C++ & Raylib\x64\Debug\Tetris - C++ & Raylib.exe
+  "pwsh.exe" no se reconoce como un comando interno o externo,
+  programa o archivo por lotes ejecutable.

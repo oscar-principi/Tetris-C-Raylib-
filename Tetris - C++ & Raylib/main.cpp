@@ -1,10 +1,9 @@
 #include <raylib.h>
 #include <iostream>
 #include "Game.h"
-#include "Colors.h"
-#include "Menu.h"
-#include "Level.h"
 #include "GameState.h"
+#include "Colors.h"
+#include "Level.h"
 
 double lastUpdateTime = 0;
 GameState currentState = MENU;
@@ -22,6 +21,7 @@ bool EventTriggered(double interval)
     return false;
 }
 
+
 int main()
 {
     InitWindow(500, 620, "Tetris - C++ & Raylib");
@@ -37,7 +37,9 @@ int main()
             if (IsKeyPressed(KEY_ENTER))
             {
                 currentState = PLAYING;
-                ResetLevel(level, dropInterval);
+                ResetLevel(level, dropInterval);  
+                game.score = 0; 
+                game.gameOver = false; 
             }
         }
         else if (currentState == PLAYING)
@@ -51,6 +53,38 @@ int main()
             }
 
             UpdateLevel(game.score, level, dropInterval);
+
+            if (game.gameOver)
+            {
+                currentState = GAME_OVER;
+            }
+
+            if (IsKeyPressed(KEY_P))
+            {
+                currentState = PAUSED;
+            }
+        }
+        else if (currentState == PAUSED)
+        {
+            if (IsKeyPressed(KEY_ENTER))
+            {
+                currentState = PLAYING;
+            }
+            else if (IsKeyPressed(KEY_ESCAPE))
+            {
+                currentState = MENU;
+            }
+        }
+        else if (currentState == GAME_OVER)
+        {
+            if (IsKeyPressed(KEY_ENTER))
+            {
+                currentState = MENU;
+                game.score = 0; 
+                level = 1; 
+                dropInterval = 0.5; 
+                game.gameOver = false;
+            }
         }
 
         BeginDrawing();
@@ -58,11 +92,19 @@ int main()
 
         if (currentState == MENU)
         {
-            DrawMenu(font);
+            game.DrawMenu(font);
         }
         else if (currentState == PLAYING)
         {
-            DrawGame(font, game, level);
+            game.DrawGame(font, game, level);
+        }
+        else if (currentState == PAUSED)
+        {
+            game.DrawPause(font);
+        }
+        else if (currentState == GAME_OVER)
+        {
+            game.DrawGameOver(font, game.score);
         }
 
         EndDrawing();

@@ -17,6 +17,15 @@ void Block::Draw(int offsetX, int offsetY)
         DrawRectangle(item.column * cellSize + offsetX, item.row * cellSize + offsetY, cellSize - 1, cellSize - 1, colors[id]);
     }
 }
+int Block::GetCellSize() { return cellSize; } 
+
+int Block::GetRowOffset() { return rowOffset; }
+void Block::SetRowOffset(int value) { rowOffset = value; }
+
+
+int Block::GetColumnOffset() { return columnOffset; }
+void Block::SetColumnOffset(int value) { columnOffset = value; }
+
 
 void Block::Move(int rows, int columns)
 {
