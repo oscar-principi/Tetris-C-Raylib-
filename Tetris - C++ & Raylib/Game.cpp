@@ -13,10 +13,10 @@ Game::Game()
     gameOver = false;
     score = 0;
     InitAudioDevice();
-    music = LoadMusicStream("Tetris - C++ & Raylib/Sounds/music.mp3");
+    music = LoadMusicStream("../Sounds/music.mp3");
     PlayMusicStream(music);
-    rotateSound = LoadSound("Tetris - C++ & Raylib/Sounds/rotate.mp3");
-    clearSound = LoadSound("Tetris - C++ & Raylib/Sounds/clear.mp3");
+    rotateSound = LoadSound("../Sounds/rotate.mp3");
+    clearSound = LoadSound("../Sounds/clear.mp3");
 }
 
 Game::~Game()
@@ -127,30 +127,65 @@ void Game::DrawGame(Font font, Game& game, int level)
 
 void Game::DrawGameOver(Font font, int score)
 {
-    // Verificar si el puntaje actual es un nuevo record
     HighScore highScore = ReadHighScore("highscore.txt");
-    if (score > highScore.score) {
-        std::string playerName;
-        std::cout << "Nuevo record! Ingresa tu nombre: ";
-        std::getline(std::cin, playerName);
 
-        // Actualizar el record
-        highScore.playerName = playerName;
-        highScore.score = score;
-
-        // Guardar el nuevo record en el archivo
-        SaveHighScore("highscore.txt", highScore);
+    if (score > highScore.score && !enteringName)
+    {
+        enteringName = true;
+        playerName = "";
     }
 
-    // Mostrar Game Over y el puntaje final
-    DrawTextEx(font, "GAME OVER", { 150, 200 }, 50, 2, RED);
-    DrawTextEx(font, TextFormat("  Final Score: %d", score), { 150, 300 }, 30, 2, WHITE);
-    DrawTextEx(font, "  Press ENTER to return to menu", { 100, 400 }, 20, 2, WHITE);
+    BeginDrawing();
+    ClearBackground(darkBlue);
 
-    // Mostrar el record actual
-    std::string recordText = "Record: " + highScore.playerName + " - " + std::to_string(highScore.score) + " puntos";
-    DrawTextEx(font, recordText.c_str(), { 150, 350 }, 20, 2, YELLOW);
+    DrawTextEx(font, "GAME OVER", { 130, 200 }, 50, 2, RED);
+    DrawTextEx(font, TextFormat("Final Score: %d", score), { 150, 300 }, 30, 2, WHITE);
+
+    if (enteringName)
+    {
+        DrawTextEx(font, "Nuevo record! ", { 150, 350 }, 20, 2, YELLOW);
+        DrawTextEx(font, "Ingresa tu nombre : ", { 100, 370 }, 20, 2, YELLOW);
+        DrawTextEx(font, playerName.c_str(), { 310, 365 }, 30, 2, WHITE);
+        DrawTextEx(font, "Presiona ENTER para guardar", { 100, 450 }, 20, 2, GREEN);
+    }
+    else
+    {
+        std::string recordText = "Record: " + highScore.playerName + " - " + std::to_string(highScore.score) + " puntos";
+        DrawTextEx(font, recordText.c_str(), { 150, 350 }, 20, 2, YELLOW);
+        DrawTextEx(font, "Press ENTER to return to menu", { 100, 400 }, 20, 2, WHITE);
+    }
+
+    EndDrawing();
+
+    if (enteringName)
+    {
+        int key = GetCharPressed();
+
+        while (key > 0)
+        {
+            if ((key >= 32) && (key <= 125) && playerName.length() < 10) 
+            {
+                playerName += static_cast<char>(key);
+            }
+            key = GetCharPressed();
+        }
+
+        if (IsKeyPressed(KEY_BACKSPACE) && !playerName.empty())
+        {
+            playerName.pop_back();
+        }
+
+        if (IsKeyPressed(KEY_ENTER) && !playerName.empty())
+        {
+            highScore.playerName = playerName;
+            highScore.score = score;
+            SaveHighScore("highscore.txt", highScore);
+
+            enteringName = false; 
+        }
+    }
 }
+
 
 void Game::EndGame(Font font, int currentScore)
 {
@@ -184,7 +219,7 @@ HighScore ReadHighScore(const std::string& filename) {
     return highScore;
 }
 
-// Guarda el puntaje más alto en el archivo
+
 void SaveHighScore(const std::string& filename, const HighScore& highScore) {
     std::ofstream file(filename);
 
@@ -379,9 +414,16 @@ void Game::Reset()
 {
     grid.Initialize();
     blocks = GetAllBlocks();
-    currentBlock = GetRandomBlock();
-    nextBlock = GetRandomBlock();
     score = 0;
+    gameOver = false;
+
+    currentBlock = GetRandomBlock();
+    nextBlock = GetRandomBlock();   
+
+    fallingBlocks.clear(); 
+
+    StopSound(rotateSound);
+    StopSound(clearSound);
 }
 
 void Game::UpdateScore(int linesCleared, int moveDownPoints)

@@ -1,6 +1,7 @@
 #pragma once
 #include "grid.h"
 #include "blocks.cpp"
+#include <string>
 
 class Game
 {
@@ -16,6 +17,7 @@ public:
     void CheckForHighScore(int currentScore);
     void HandleInput();
     void MoveBlockDown();
+    void Reset();
     bool gameOver;
     int score;
     Music music; 
@@ -33,7 +35,6 @@ private:
     void RotateBlock();
     void LockBlock();
     bool BlockFits();
-    void Reset();
     void UpdateScore(int linesCleared, int moveDownPoints);
     Grid grid;
     std::vector<Block> blocks;
@@ -42,4 +43,7 @@ private:
     Sound rotateSound;
     Sound clearSound;
     std::vector<Block> fallingBlocks; 
+    std::string playerName;
+    bool enteringName = false; 
+
 };

@@ -37,11 +37,11 @@ int main()
             if (IsKeyPressed(KEY_ENTER))
             {
                 currentState = PLAYING;
-                ResetLevel(level, dropInterval);  
-                game.score = 0; 
-                game.gameOver = false; 
+                ResetLevel(level, dropInterval);
+                game.Reset();
             }
         }
+
         else if (currentState == PLAYING)
         {
             UpdateMusicStream(game.music);
@@ -80,10 +80,9 @@ int main()
             if (IsKeyPressed(KEY_ENTER))
             {
                 currentState = MENU;
-                game.score = 0; 
-                level = 1; 
-                dropInterval = 0.5; 
-                game.gameOver = false;
+                level = 1;
+                dropInterval = 0.5;
+                game.Reset();
             }
         }
 
