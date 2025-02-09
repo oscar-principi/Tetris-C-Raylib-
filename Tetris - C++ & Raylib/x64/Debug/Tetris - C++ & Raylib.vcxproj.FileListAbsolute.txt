@@ -1,1 +1,2 @@
 C:\Users\princ\OneDrive\Desktop\Tetris - C++ & Raylib\Tetris - C++ & Raylib\x64\Debug\Tetris -.DAA2F1F0.Up2Date
+D:\Osky\Proyectos\Tetris - C++ & Raylib\Tetris - C++ & Raylib\x64\Debug\Tetris -.DAA2F1F0.Up2Date

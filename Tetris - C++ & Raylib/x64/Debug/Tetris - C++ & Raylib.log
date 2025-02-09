@@ -1,17 +1,17 @@
 ﻿  Block.cpp
-C:\Users\princ\OneDrive\Desktop\Tetris - C++ & Raylib\Tetris - C++ & Raylib\Block.cpp(62,38): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+D:\Osky\Proyectos\Tetris - C++ & Raylib\Tetris - C++ & Raylib\Block.cpp(62,38): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
   Blocks.cpp
   Colors.cpp
   Game.cpp
-C:\Users\princ\OneDrive\Desktop\Tetris - C++ & Raylib\Tetris - C++ & Raylib\Game.cpp(68,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\princ\OneDrive\Desktop\Tetris - C++ & Raylib\Tetris - C++ & Raylib\Game.cpp(116,48): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\princ\OneDrive\Desktop\Tetris - C++ & Raylib\Tetris - C++ & Raylib\Game.cpp(123,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+D:\Osky\Proyectos\Tetris - C++ & Raylib\Tetris - C++ & Raylib\Game.cpp(68,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+D:\Osky\Proyectos\Tetris - C++ & Raylib\Tetris - C++ & Raylib\Game.cpp(116,48): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+D:\Osky\Proyectos\Tetris - C++ & Raylib\Tetris - C++ & Raylib\Game.cpp(123,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
   Grid.cpp
   Level.cpp
   main.cpp
   Position.cpp
   Score.cpp
   Generando código...
-  Tetris - C++ & Raylib.vcxproj -> C:\Users\princ\OneDrive\Desktop\Tetris - C++ & Raylib\x64\Debug\Tetris - C++ & Raylib.exe
+  Tetris - C++ & Raylib.vcxproj -> D:\Osky\Proyectos\Tetris - C++ & Raylib\x64\Debug\Tetris - C++ & Raylib.exe
   "pwsh.exe" no se reconoce como un comando interno o externo,
   programa o archivo por lotes ejecutable.
