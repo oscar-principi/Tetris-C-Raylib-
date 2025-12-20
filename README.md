@@ -1,12 +1,29 @@
-Tetris
+Tetris C++ (Raylib)
+Una versión personalizada del clásico juego Tetris, desarrollada en C++ utilizando la biblioteca Raylib para la interfaz gráfico y un sistema de persistencia de datos para el récord de puntuación.
 
-#Descripcion: Juego Tetris escrito con C++, Raylib para la interfaz grafica, y sistema de archivos para persistencia.
+🚀 Características Personalizadas
+A diferencia de la versión base, este proyecto incluye:
 
-#Diseño general:  Nick Koumaris | https://www.linkedin.com/in/nick-koumaris-20baa4217/ | https://www.youtube.com/watch?v=wVYKG_ch4yM 
+Interfaz de Usuario Extendida: Pantalla de inicio (Main Menu) y pantalla de fin de juego (Game Over).
 
-#Diseño personalizado: Diseñe una pagina de Inicio y de una de Gameover, un marcador de nivel y un sistema de archivos para almacenar el record con el nombre del jugador.
+Sistema de Progresión: Marcador de niveles funcional.
 
-#Herramientas: Visual Studio Community
+Persistencia de Datos: Sistema de manejo de archivos para guardar y cargar el récord (High Score) junto con el nombre del jugador.
+
+🛠️ Herramientas Utilizadas
+Lenguaje: C++
+
+Gráficos: Raylib
+
+IDE: Visual Studio Community
+
+Base del diseño: Basado en el tutorial de Nick Koumaris (Programming With Nick).
+
+🎮 Créditos
+Lógica Principal y Tutorial: Nick Koumaris 
+https://www.linkedin.com/in/nick-koumaris-20baa4217/ | https://www.youtube.com/watch?v=wVYKG_ch4yM 
+
+Desarrollo de Funcionalidades Extra: Diseñe un Menu de Inicio, una vista de Game Over, y un sistema de persistencia con archivos para la mayor putnuacion con el nombr edl jugador.
 
 <img width="492" height="615" alt="image" src="https://github.com/user-attachments/assets/78099414-e922-48c9-a758-8c3a40015344" />
 
