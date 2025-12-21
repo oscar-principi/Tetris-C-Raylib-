@@ -1,4 +1,5 @@
-Tetris C++ (Raylib)
+Tetris C++ (Raylib) 🎮 App Escritorio
+
 Una versión personalizada del clásico juego Tetris, desarrollada en C++ utilizando la biblioteca Raylib para la interfaz gráfico y un sistema de persistencia de datos para el récord de puntuación.
 
 🚀 Características Personalizadas:
